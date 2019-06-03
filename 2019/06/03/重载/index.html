@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+
+
+
+
+
+
+
+
+
+<head><meta name="generator" content="Hexo 3.8.0">
+    <meta charset="utf-8">
+    <link rel="apple-touch-icon" sizes="76x76" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" href="/favicon.png">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="description" content>
+    <meta name="author" content>
+    <meta name="keywords" content>
+    <title>Hexo</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.7.2/css/all.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/mdbootstrap@4.7.4/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/mdbootstrap@4.7.4/css/mdb.min.css">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="https://at.alicdn.com/t/font_1067060_vr10bjtg3us.css">
+    
+        <link rel="stylesheet" href="/css/Prettify/tomorrow-night-eighties.min.css">
+    
+</head>
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+<div class="container">
+    <a class="navbar-brand" href="/"><strong>Hexo</strong></a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav ml-auto text-center">
+            
+            <li class="nav-item">
+                <a class="nav-link" href="/">Home</a>
+            </li>
+            
+            <li class="nav-item">
+                <a class="nav-link" href="/archives/">Archives</a>
+            </li>
+            
+            <li class="nav-item">
+                <a class="nav-link" href="/about/">About</a>
+            </li>
+            
+        </ul>
+    </div>
+</div>
+
+
+</nav>
+    <div class="view intro-2" style='background: url("https://api.dujin.org/bing/1920.php")no-repeat center center;background-size: cover;'>
+    <div class="full-bg-img">
+        <div class="mask rgba-black-light flex-center">
+        <div class="container text-center white-text wow fadeInUp">
+            <p class="h2"></p>
+            <br>
+            
+            <p>Monday, June 3rd 2019, 10:41 pm</p>
+            
+        </div>
+        </div>
+    </div>
+    </div>
+  </header>
+
+  <main>
+  
+  <div class="container-fluid">
+    <div class="row">
+        <div class="col-md-8 offset-md-2 ">
+            <div class="post-content py-5 z-depth-3 main">
+                <h1 id="重载-overload"><a href="#重载-overload" class="headerlink" title="重载(overload)"></a>重载(overload)</h1><p>重载(overloading) 是在一个类里面，方法名字相同，而参数不同。返回类型可以相同也可以不同。</p>
+<p>每个重载的方法（或者构造函数）都必须有一个独一无二的参数类型列表。</p>
+<p>最常用的地方就是构造器的重载。</p>
+<p>重载规则:</p>
+<ul>
+<li>被重载的方法必须改变参数列表(参数个数或类型不一样)；</li>
+<li>被重载的方法可以改变返回类型；</li>
+<li>被重载的方法可以改变访问修饰符；</li>
+<li>被重载的方法可以声明新的或更广的检查异常；</li>
+<li>方法能够在同一个类中或者在一个子类中被重载。</li>
+</ul>
+<p>ps:主(main)方法也能重载<br>静态<br>编译多态</p>
+<p>#重写(override)</p>
+<ul>
+<li>对方法的重写叫覆盖</li>
+<li>对属性的重写叫隐藏</li>
+</ul>
+<p>重写(override)是两个类,两个类要有继承关系.<br>常用在重写抽象类的方法<br>重写是子类对父类的允许访问的方法的实现过程进行重新编写, 返回值和形参都不能改变。即外壳不变，核心重写！<br>重写的好处在于子类可以根据需要，定义特定于自己的行为。 也就是说子类能够根据需要实现父类的方法。</p>
+<p>区别点 | 重载方法   |   重写方法|<br>–|—|—|–<br>参数列表  | 必须修改  | 一定不能修改  |<br>返回类型| 可以修改   | 一定不能修改  |<br>异常| 可以修改  | 可以减少或删除，一定不能抛出新的或者更广的异常   |<br>访问权限  |  可以修改 |  一定不能做更严格的限制（可以降低限制）  |</p>
+
+                <hr>
+                <div>
+                    <p>
+                        
+                    </p>
+                </div>
+                <br>
+                
+                    <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a href="https://zh.wikipedia.org/wiki/Wikipedia:CC_BY-SA_3.0%E5%8D%8F%E8%AE%AE%E6%96%87%E6%9C%AC">CC BY-SA 3.0协议</a> 。转载请注明出处！</p>
+                
+            </div>
+        </div>
+        <div class="d-none d-md-block col-md-2">
+            
+  <div id="toc" class="py-5">
+    <p class="h6"><i class="iconfont icon-toc" style="vertical-align:middle"></i> Toc:</p> 
+    <div id="tocbot"></div>
+  </div>
+
+        </div>
+    </div>        
+</div>
+
+<br><br><br>
+
+<!-- Comments -->
+<div class="comments" id="comments">
+ 
+</div>
+  
+  </main>
+
+<footer class="mt-5">
+  <div class="text-center py-3">
+    <a href="https://hexo.io" target="_blank"><b>HEXO</b></a>
+    <i class="iconfont icon-love"></i>
+    <a href="https://github.com/0x2e/Material-T" target="_blank"> <b>Material-T</b></a>
+  </div>
+</footer>
+
+  <!-- SCRIPTS -->
+  <script src="https://cdn.jsdelivr.net/npm/mdbootstrap@4.7.4/js/jquery-3.3.1.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mdbootstrap@4.7.4/js/popper.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mdbootstrap@4.7.4/js/bootstrap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mdbootstrap@4.7.4/js/mdb.min.js"></script>
+  <script src="/js/main.js"></script>
+  
+    
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.min.js"></script>
+    
+    <script src="/js/post.js"></script>
+    
+      <script src="/js/plugins/prettify.js"></script>
+      <script>
+          $(document).ready(function(){
+              $('pre').addClass('prettyprint linenums');
+              prettyPrint();
+          })
+      </script>
+    
+  
+</body>
+</html>

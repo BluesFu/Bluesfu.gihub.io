@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+
+
+
+
+
+
+
+
+
+<head><meta name="generator" content="Hexo 3.8.0">
+    <meta charset="utf-8">
+    <link rel="apple-touch-icon" sizes="76x76" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" href="/favicon.png">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="description" content>
+    <meta name="author" content>
+    <meta name="keywords" content>
+    <title>Hexo</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.7.2/css/all.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/mdbootstrap@4.7.4/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/mdbootstrap@4.7.4/css/mdb.min.css">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="https://at.alicdn.com/t/font_1067060_vr10bjtg3us.css">
+    
+        <link rel="stylesheet" href="/css/Prettify/tomorrow-night-eighties.min.css">
+    
+</head>
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+<div class="container">
+    <a class="navbar-brand" href="/"><strong>Hexo</strong></a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav ml-auto text-center">
+            
+            <li class="nav-item">
+                <a class="nav-link" href="/">Home</a>
+            </li>
+            
+            <li class="nav-item">
+                <a class="nav-link" href="/archives/">Archives</a>
+            </li>
+            
+            <li class="nav-item">
+                <a class="nav-link" href="/about/">About</a>
+            </li>
+            
+        </ul>
+    </div>
+</div>
+
+
+</nav>
+    <div class="view intro-2" style='background: url("https://api.dujin.org/bing/1920.php")no-repeat center center;background-size: cover;'>
+    <div class="full-bg-img">
+        <div class="mask rgba-black-light flex-center">
+        <div class="container text-center white-text wow fadeInUp">
+            <p class="h2"></p>
+            <br>
+            
+            <p>Monday, June 3rd 2019, 10:41 pm</p>
+            
+        </div>
+        </div>
+    </div>
+    </div>
+  </header>
+
+  <main>
+  
+  <div class="container-fluid">
+    <div class="row">
+        <div class="col-md-8 offset-md-2 ">
+            <div class="post-content py-5 z-depth-3 main">
+                <h1 id="java排序"><a href="#java排序" class="headerlink" title="java排序"></a>java排序</h1><p>一维数组排序</p>
+<h2 id="1-冒泡排序"><a href="#1-冒泡排序" class="headerlink" title="1.冒泡排序"></a>1.冒泡排序</h2><p>实现原理：比较相邻的元素。如果第一个比第二个大，就交换他们两个。<br><br>对每一对相邻元素做同样的工作，从开始第一对到结尾的最后一对。在这一点，最后的元素应该会是最大的数。<br><br>针对所有的元素重复以上的步骤，除了最后一个。<br><br>持续每次对越来越少的元素重复上面的步骤，直到没有任何一对数字需要比较<br></p>
+<p>代码实现如下：</p>
+<pre><code class="java">public class BubbleSort {
+
+    /**
+     *  &lt;&gt;
+     * @method: bubbleSort
+     * @Param: [arr]
+     * @Return: void
+     * @exception:    冒泡排序
+     * @Author: fsy
+     * @Date: 19-5-29 下午3:14
+     * @description:
+     *
+     */
+    public void bubbleSort(int[] arr) {
+        boolean flag;
+        for (int i=arr.length - 1; i &gt; 0; i--) {
+            //提高排序效率，减少不必要循环
+            flag=false;
+            for (int j=0; j &lt; i; j++) {
+                if (arr[j] &gt; arr[j + 1]) {
+                    swap(arr,j);
+                    flag=true;
+                }
+            }
+            if (!flag) {
+                break;
+            }
+        }
+
+    }
+    static void swap(int[] arr,int j){
+        arr[j]   ^=arr[j+1];
+        arr[j+1] ^=arr[j];
+        arr[j]   ^=arr[j+1];
+    }
+}</code></pre>
+<h2 id="2-选择排序"><a href="#2-选择排序" class="headerlink" title="2.选择排序"></a>2.选择排序</h2><p>实现原理：<br>它的工作原理是每一次从待排序的数据元素中选出最小（或最大）的一个元素，存放在序列的起始位置，然后，再从剩余未排序元素中继续寻找最小（大）元素，然后放到已排序序列的末尾。以此类推，直到全部待排序的数据元素排完。 选择排序是不稳定的排序方法。<br>实现代码如下：</p>
+<pre><code class="java">public class SelectionSort {
+    /**
+     *  &lt;&gt;
+     * @method: selectionSort
+     * @Param: [arr]
+     * @Return: void
+     * @exception:
+     * @Author: fsy
+     * @Date: 19-5-29 下午3:21
+     * @description:
+     *
+     */
+    public void selectionSort(int[] arr) {
+
+        for (int i=0; i &lt;arr.length-1 ; i++) {
+            int k=i;
+            for (int j=k+1; j &lt;arr.length ; j++) {
+                if (arr[j]&lt;arr[k]){
+                    k=j;
+                }
+            }
+            if (i!=k){
+            swap(arr,i,k);
+            }
+        }
+
+    }
+
+    static void swap(int[] arr,int i,int j){
+        arr[i]   ^=arr[j];
+        arr[j]   ^=arr[i];
+        arr[i]   ^=arr[j];
+    }
+}
+</code></pre>
+<h2 id="3-插入排序"><a href="#3-插入排序" class="headerlink" title="3.插入排序"></a>3.插入排序</h2><p>实现原理：<br>每步将一个待排序的记录，按其关键码值的大小插入前面已经排序的文件中适当位置上，直到全部插入完为止。</p>
+<p>代码实现如下：</p>
+<pre><code class="java">public class InsertSort {
+
+    /**
+     *  &lt;&gt;
+     * @method: insertSort
+     * @Param: [arr]
+     * @Return: void
+     * @exception:
+     * @Author: fsy
+     * @Date: 19-5-29 下午3:50
+     * @description:
+     *
+     */
+        public void insertSort(int[] arr){
+            //需要插入的数
+            int insertNum;
+            for (int i=1; i &lt;arr.length ; i++) {
+                insertNum=arr[i];
+                //序列元素个数
+                int j=i-1;
+                //将大于insertNum的元素往后移动
+                while (j&gt;=0&amp;&amp;arr[j]&gt;insertNum){
+                    arr[j+1]=arr[j];
+                    j--;
+                }
+                //找到位置，插入当前元素
+                arr[j+1]=insertNum;
+            }
+  }</code></pre>
+<h2 id="4-快速排序"><a href="#4-快速排序" class="headerlink" title="4.快速排序"></a>4.快速排序</h2><p>实现原理：<br>通过一趟排序将要排序的数据分割成独立的两部分，其中一部分的所有数据都比另外一部分的所有数据都要小，然后再按此方法对这两部分数据分别进行快速排序，整个排序过程可以递归进行，以此达到整个数据变成有序序列。<br>实现代码如下：</p>
+<pre><code>public class QuickSort {
+    /**
+     * &lt;&gt;
+     *
+     * @method: quickSort
+     * @Param: [arr]
+     * @Return: void
+     * @exception:
+     * @Author: fsy
+     * @Date: 19-5-29 下午4:43
+     * @description: 快速排序：用递归方法对数据元素啊arr[low]-arr[high]进行快速排序
+     */
+    public void quickSort(int[] arr, int low, int high) {
+        int i=low, j=high;
+        //获取第一个元素作为标准数据元素
+        int temp=arr[low];
+        while (i &lt; j) {
+            //在数组的右端扫描
+            while (i &lt; j &amp;&amp; temp &lt; arr[j]) {
+                j--;
+            }
+            if (i &lt; j) {
+                arr[i]=arr[j];
+                i++;
+            }
+
+
+            //在数组的左端开始扫描
+            while (i &lt; j &amp;&amp; arr[i] &lt; temp) { i++;}
+
+            if (i &lt; j) {
+                arr[j]=arr[i];
+                j--;
+            }
+        }
+
+        arr[i]=temp;
+        //对左端子集合进行递归
+        if (low &lt; i) { quickSort(arr, low, i - 1);
+        }
+        //对右端子集合进行递归
+        if (i &lt; high) { quickSort(arr, j + 1, high); }
+
+    }
+}</code></pre><h2 id="5-希尔排序"><a href="#5-希尔排序" class="headerlink" title="5.希尔排序"></a>5.希尔排序</h2><p>基本思想：<br>　　希尔排序的实质就是分组插入排序，又称缩小增量法。<br><br>　　将整个无序序列分割成若干个子序列（由相隔某个“增量”的元素组成的）分别进行直接插入排序，然后依次缩减增量再进行排序，待整个序列中的元素基本有序时，再对全体元素进行一次直接插入排序。<br><br>　　因为直接插入排序在元素基本有序的情况下，效率是很高的，因此希尔排序在时间效率上有很大提高。<br>实现代码如下：</p>
+<pre><code>public class ShellSort {
+        /**
+         *  &lt;&gt;
+         * @method: shellSort
+         * @Param: [arr]
+         * @Return: void
+         * @exception:
+         * @Author: fsy
+         * @Date: 19-5-29 下午7:44
+         * @description:
+         *
+         */
+
+        public void shellSort(int[] arr) {
+            int num=arr.length;
+            int gap;
+            for (gap=num &gt;&gt; 1; gap &gt; 0; gap &gt;&gt;= 1) {
+                for (int i=0; i &lt;gap; i++) {
+                    for (int j=i+gap; j &lt;num ; j+=gap) {
+                        int temp=arr[j];
+                        int k;
+                        for ( k=j-gap; k &gt;=0&amp;&amp;arr[k]&gt;temp ; k-=gap) {
+                            arr[k+gap] =arr[k];
+                        }
+                        arr[k+gap]=temp;
+                    }
+                }
+
+            }
+        }
+    }</code></pre><h2 id="6-堆排序"><a href="#6-堆排序" class="headerlink" title="6.堆排序"></a>6.堆排序</h2><p>实现思想：在堆的数据结构中，堆中的最大值总是位于根节点（在优先队列中使用堆的话堆中的最小值位于根节点）。堆中定义以下几种操作：</p>
+<ul>
+<li>最大堆调整（Max Heapify）：将堆的末端子节点作调整，使得子节点永远小于父节点</li>
+<li>创建最大堆（Build Max Heap）：将堆中的所有数据重新排序</li>
+<li>堆排序（HeapSort）：移除位在第一个数据的根节点，并做最大堆调整的递归运算</li>
+</ul>
+<p>实现代码如下:</p>
+<pre><code class="java">public class HeapSort {
+
+
+  private void creatHeap(int[] arr,int n,int h){
+        int i,j,flag;
+        int temp;
+
+        //i为要建堆的二叉树根节点下标
+        i=h;
+        //j为i的左孩子节点的下标
+        j=2*i+1;
+
+        temp=arr[i];
+        flag=0;
+        //沿左右孩子中值较大者重复向下筛选
+        while(j&lt;n&amp;&amp;flag!=1){
+            //寻找左右孩子节点中的较大者，j为其下标
+            if (j&lt;n-1&amp;&amp;arr[j]&lt;arr[j+1]){
+                j++;
+            }
+
+            /**
+             * arr[i&gt;arr[j]
+             * 标记结束筛选条件
+             * 否则把arr[j]上移
+             */
+            if (temp&gt;arr[j]){
+                flag=1;
+            }else {
+                arr[i]=arr[j];
+                i=j;
+                j=2*i+1;
+            }
+
+        }
+
+        arr[i]=temp;
+    }
+
+   private void initCreatHeap(int[] arr,int n){
+        for (int i=(n - 1) &gt;&gt; 1; i &gt;=0; i--) {
+            creatHeap(arr, n, i);
+        }
+    }
+    /**
+     *  &lt;&gt;
+     * @method: heapSort
+     * @Param: [arr, n]
+     * @Return: void
+     * @exception:
+     * @Author: fsy
+     * @Date: 19-5-29 下午8:14
+     * @description: 堆排序
+     *
+     */
+
+    public void heapSort(int[] arr){
+
+        //初始化创建最大堆
+      initCreatHeap(arr,arr.length);
+        for (int i=arr.length-1; i &gt;0; i--) {
+
+            //把堆顶arr[0]元素与当前最大堆的最后一个元素交换
+           swap(arr, i);
+
+            //调整根节点满足最大堆
+           creatHeap(arr, i, 0);
+        }
+
+    }
+
+      //元素交换
+
+    static void swap(int[] a,int i){
+       a[0] ^=a[i];
+       a[i] ^=a[0];
+       a[0] ^=a[i];
+    }
+}
+</code></pre>
+<h2 id="7-二分排序"><a href="#7-二分排序" class="headerlink" title="7.二分排序"></a>7.二分排序</h2><p>实现思想：<br><br>二分法插入排序是在插入第i个元素时，对前面的0～i-1元素进行折半，先跟他们中间的那个元素比，如果小，则对前半再进行折半，否则对后半进行折半，直到left&gt;right，然后再把第i个元素前1位与目标位置之间的所有元素后移，再把第i个元素放在目标位置上。<br>实现代码如下：</p>
+<pre><code class="java">public class BinarySort {
+    /**
+     *  &lt;&gt;
+     * @method: binarySort
+     * @Param: [arr]
+     * @Return: void
+     * @exception:
+     * @Author: fsy
+     * @Date: 19-5-29 下午8:31
+     * @description:二分排序算法
+     *
+     */
+    public  void binarySort(int[] arr) {
+        int i, j;
+        int high, low, mid;
+        int temp;
+        for (i = 1; i &lt; arr.length; i++) {
+            // 查找区上界
+            low = 0;
+            // 查找区下界
+            high = i - 1;
+            //将当前待插入记录保存在临时变量中
+            temp = arr[i];
+            while (low &lt;= high) {
+                // 找出中间值
+                // mid = (low + high) / 2;
+                mid = (low + high) &gt;&gt; 1;
+                //如果待插入记录比中间记录小
+                if (temp&lt;arr[mid] ) {
+                    // 插入点在低半区
+                    high = mid - 1;
+                } else {
+                    // 插入点在高半区
+                    low = mid + 1;
+                }
+            }
+            //将前面所有大于当前待插入记录的记录后移
+            for (j = i - 1; j &gt;=low; j--) {
+                arr[j + 1] = arr[j];
+            }
+            //将待插入记录回填到正确位置.
+            arr[low] = temp;
+
+
+        }
+    }
+
+}
+</code></pre>
+<h2 id="测试类"><a href="#测试类" class="headerlink" title="测试类"></a>测试类</h2><pre><code class="java">//测试各个排序算法
+public class Test {
+    public static void main(String[] args) {
+
+
+        int[] arr={12, 15, 19, 2, 0, 78, 115, 73, -16, 99};
+        /*
+        new BubbleSort().bubbleSort(arr);
+        new SelectionSort().selectionSort(arr);
+        new InsertSort().insertSort(arr);
+        new QuickSort().quickSort(arr, 0, arr.length-1);
+        new ShellSort().shellSort(arr);
+        new HeapSort().heapSort(arr);
+
+         */
+        new BinarySort().binarySort(arr);
+
+        for (int ele:arr
+             ) {
+            System.out.println(ele);
+        }
+
+    }
+}</code></pre>
+<h2 id="各种排序方法性能比较"><a href="#各种排序方法性能比较" class="headerlink" title="各种排序方法性能比较"></a>各种排序方法性能比较</h2><table>
+<thead>
+<tr>
+<th>排序方法</th>
+<th>最好时间</th>
+<th>平均时间</th>
+<th>最坏时间</th>
+<th>辅助空间</th>
+<th>稳定性</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>直接插入排序</td>
+<td>O(n)</td>
+<td>O(n²)</td>
+<td>O(n²)</td>
+<td>O(1)</td>
+<td>稳定</td>
+</tr>
+<tr>
+<td>直接选择排序</td>
+<td>O(n²)</td>
+<td>O(n²)</td>
+<td>O(n²)</td>
+<td>O(n²)</td>
+<td>不稳定</td>
+</tr>
+<tr>
+<td>冒泡排序</td>
+<td>O(n)</td>
+<td>O(n²)</td>
+<td>O(n²)</td>
+<td>O(n²)</td>
+<td>稳定</td>
+</tr>
+<tr>
+<td>希尔排序</td>
+<td>-</td>
+<td>O(n^1.3)</td>
+<td>-</td>
+<td>O(1)</td>
+<td>不稳定</td>
+</tr>
+<tr>
+<td>堆排序</td>
+<td>O(nlog2(n))</td>
+<td>O(nlog2(n))</td>
+<td>O(nlog2(n))</td>
+<td>O(nlog2(n))</td>
+<td>不稳定</td>
+</tr>
+<tr>
+<td>快速排序</td>
+<td>O(nlog2(n))</td>
+<td>O(nlog2(n))</td>
+<td>O(n²)</td>
+<td>O(nlog2(n))</td>
+<td>不稳定</td>
+</tr>
+<tr>
+<td>二分排序</td>
+<td>-</td>
+<td>O(nlog2(n))</td>
+<td>-</td>
+<td>O(1)</td>
+<td>稳定</td>
+</tr>
+</tbody></table>
+
+                <hr>
+                <div>
+                    <p>
+                        
+                    </p>
+                </div>
+                <br>
+                
+                    <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a href="https://zh.wikipedia.org/wiki/Wikipedia:CC_BY-SA_3.0%E5%8D%8F%E8%AE%AE%E6%96%87%E6%9C%AC">CC BY-SA 3.0协议</a> 。转载请注明出处！</p>
+                
+            </div>
+        </div>
+        <div class="d-none d-md-block col-md-2">
+            
+  <div id="toc" class="py-5">
+    <p class="h6"><i class="iconfont icon-toc" style="vertical-align:middle"></i> Toc:</p> 
+    <div id="tocbot"></div>
+  </div>
+
+        </div>
+    </div>        
+</div>
+
+<br><br><br>
+
+<!-- Comments -->
+<div class="comments" id="comments">
+ 
+</div>
+  
+  </main>
+
+<footer class="mt-5">
+  <div class="text-center py-3">
+    <a href="https://hexo.io" target="_blank"><b>HEXO</b></a>
+    <i class="iconfont icon-love"></i>
+    <a href="https://github.com/0x2e/Material-T" target="_blank"> <b>Material-T</b></a>
+  </div>
+</footer>
+
+  <!-- SCRIPTS -->
+  <script src="https://cdn.jsdelivr.net/npm/mdbootstrap@4.7.4/js/jquery-3.3.1.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mdbootstrap@4.7.4/js/popper.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mdbootstrap@4.7.4/js/bootstrap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mdbootstrap@4.7.4/js/mdb.min.js"></script>
+  <script src="/js/main.js"></script>
+  
+    
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.min.js"></script>
+    
+    <script src="/js/post.js"></script>
+    
+      <script src="/js/plugins/prettify.js"></script>
+      <script>
+          $(document).ready(function(){
+              $('pre').addClass('prettyprint linenums');
+              prettyPrint();
+          })
+      </script>
+    
+  
+</body>
+</html>
